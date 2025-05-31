@@ -1,0 +1,126 @@
+<section class="services-section" @fadeIn>
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">Our Services</h2>
+    </div>
+    <p class="intro-text">
+      At JK CloudLabs, we specialize in innovative and scalable solutions tailored for your business needs. Explore our core services designed to drive growth and efficiency.
+    </p>
+
+    <div class="services-grid">
+      <article
+        class="service-card"
+        tabindex="0"
+        aria-label="Cloud Infrastructure Setup"
+      >
+        <div class="icon-wrapper" aria-hidden="true">☁️</div>
+        <h3>Cloud Infrastructure Setup</h3>
+        <p>Designing and deploying scalable, secure cloud architectures with automation and DevOps best practices.</p>
+        <button
+          class="btn-learn-more"
+          aria-haspopup="dialog"
+          (click)="openModal('cloud')"
+        >Learn More</button>
+      </article>
+
+      <article
+        class="service-card"
+        tabindex="0"
+        aria-label="AI & Machine Learning Solutions"
+      >
+        <div class="icon-wrapper" aria-hidden="true">🤖</div>
+        <h3>AI & Machine Learning Solutions</h3>
+        <p>Custom AI models, predictive analytics, and intelligent automation to power your business insights.</p>
+        <button
+          class="btn-learn-more"
+          aria-haspopup="dialog"
+          (click)="openModal('ai')"
+        >Learn More</button>
+      </article>
+
+      <article
+        class="service-card"
+        tabindex="0"
+        aria-label="Web & Mobile Application Development"
+      >
+        <div class="icon-wrapper" aria-hidden="true">🌐</div>
+        <h3>Web & Mobile Application Development</h3>
+        <p>Building modern, responsive web and mobile apps with seamless UX and high performance.</p>
+        <button
+          class="btn-learn-more"
+          aria-haspopup="dialog"
+          (click)="openModal('web')"
+        >Learn More</button>
+      </article>
+
+      <article
+        class="service-card"
+        tabindex="0"
+        aria-label="Cybersecurity & Compliance"
+      >
+        <div class="icon-wrapper" aria-hidden="true">🔒</div>
+        <h3>Cybersecurity & Compliance</h3>
+        <p>Ensuring your digital assets are protected with advanced security protocols and industry standards compliance.</p>
+        <button
+          class="btn-learn-more"
+          aria-haspopup="dialog"
+          (click)="openModal('security')"
+        >Learn More</button>
+      </article>
+
+      <article
+        class="service-card"
+        tabindex="0"
+        aria-label="Cloud Migration & Support"
+      >
+        <div class="icon-wrapper" aria-hidden="true">🚀</div>
+        <h3>Cloud Migration & Support</h3>
+        <p>Seamless migration of legacy systems to cloud platforms with ongoing support and optimization.</p>
+        <button
+          class="btn-learn-more"
+          aria-haspopup="dialog"
+          (click)="openModal('migration')"
+        >Learn More</button>
+      </article>
+    </div>
+
+    <section class="tech-stack">
+      <h3>Technologies We Use</h3>
+      <ul>
+        <li>☁️ AWS, Azure, Google Cloud</li>
+        <li>🤖 TensorFlow, PyTorch</li>
+        <li>⚛️ Angular, React, Vue.js</li>
+        <li>🐳 Docker, Kubernetes</li>
+        <li>🔧 Jenkins, GitHub Actions</li>
+        <li>☕ Java, Spring Boot with AI advancements</li>
+      </ul>
+    </section>
+  </div>
+
+  <!-- Modal -->
+  <div
+    class="modal-overlay"
+    [class.active]="modalActive"
+    role="dialog"
+    aria-modal="true"
+    [attr.aria-hidden]="!modalActive"
+    (click)="onOverlayClick($event)"
+  >
+    <div
+      class="modal-content"
+      role="document"
+      tabindex="0"
+      aria-labelledby="modal-title"
+      aria-describedby="modal-desc"
+      *ngIf="modalActive"
+    >
+      <button
+        class="modal-close"
+        aria-label="Close modal"
+        (click)="closeModal()"
+      >&times;</button>
+      <h3 id="modal-title">{{ modalTitle }}</h3>
+      <p id="modal-desc">{{ modalDesc }}</p>
+    </div>
+  </div>
+</section>

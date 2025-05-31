@@ -1,0 +1,31 @@
+<section class="work-showcase" [@fadeIn]>
+  <div class="section-header">
+    <h2 class="section-title">Our Work</h2>
+    <p class="section-subtitle">
+      Explore the diverse range of projects we've passionately built for our clients.
+    </p>
+  </div>
+
+  <div class="works-grid">
+    <div
+      class="work-card"
+      *ngFor="let work of works"
+      (click)="openProject(work.url)"
+      tabindex="0"
+    >
+      <div class="work-image">
+        <img [src]="work.image" [alt]="work.title" />
+
+        <div class="hover-overlay">
+          <i [class]="work.icon + ' work-icon'"></i>
+          <p class="view-text">View Project</p>
+        </div>
+      </div>
+
+      <div class="work-details">
+        <h3>{{ work.title }}</h3>
+        <p>{{ work.description }}</p>
+      </div>
+    </div>
+  </div>
+</section>

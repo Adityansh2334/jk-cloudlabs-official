@@ -1,0 +1,104 @@
+<!-- Hero Section -->
+<section class="hero-section" @fadeIn>
+  <!-- Animated Background -->
+  <div class="animated-bg">
+    <div class="blob blob1"></div>
+    <div class="blob blob2"></div>
+    <div class="blob blob3"></div>
+  </div>
+
+  <div class="hero-container">
+    <div class="hero-content" @slideInUp>
+      <h1>
+        Empowering Ideas with <span class="gradient-text">JK CloudLabs</span>
+      </h1>
+      <p class="subtitle">
+        Cloud-native solutions, built to scale and inspire.
+      </p>
+      <a [routerLink]="['/services']">
+        <button class="btn-primary">
+          🚀 Explore Our Services
+        </button>
+      </a>
+    </div>
+
+    <div class="hero-image" @slideInRight>
+      <img src="assets/undraw_programming_65t2.svg" alt="Cloud Solutions" />
+    </div>
+  </div>
+</section>
+
+
+<!-- Features Section -->
+<section class="features-section section-padding" id="features" @fadeIn>
+  <div class="section-header text-center">
+    <h2 class="section-title" @slideInUp>Our Core Offerings</h2>
+    <p class="section-subtitle" @slideInUp>Modern tech. Elegant execution. Tailored for your business.</p>
+  </div>
+  <div class="feature-grid">
+    <div class="feature-card" *ngFor="let feature of features" @staggerList>
+      <div class="icon-wrapper">
+        <i [ngClass]="[feature.icon, 'feature-icon']"></i>
+      </div>
+      <h3>{{ feature.title }}</h3>
+      <p>{{ feature.description }}</p>
+    </div>
+  </div>
+</section>
+
+<!-- Stats Section -->
+<section class="stats-section glassmorphism" @fadeIn #statsSection>
+  <div class="stats-grid">
+    <div class="stat-box" *ngFor="let stat of stats" @slideInUp>
+      <h2>{{ stat.displayValue }}<span>+</span></h2>
+      <p>{{ stat.label }}</p>
+    </div>
+  </div>
+</section>
+
+<!-- Testimonials Section -->
+<section class="testimonials-section section-padding" @fadeIn>
+  <div class="section-header text-center">
+    <h2 class="section-title" @slideInUp>Client Voices</h2>
+  </div>
+
+  <div class="testimonial-carousel">
+    <button *ngIf="testimonials.length > 1" class="carousel-arrow left" (click)="scrollTestimonials('left')">
+      <i class="fa-solid fa-chevron-left"></i>
+    </button>
+
+    <!-- Make carousel-track scrollable and assign #scrollContainer here -->
+    <div class="carousel-wrapper">
+      <div class="carousel-track" #scrollContainer>
+        <div *ngFor="let t of testimonials" class="testimonial-card">
+          <p class="quote">“{{ t.quote }}”</p>
+          <div class="testimonial-author">
+            <h4>{{ t.name }}</h4>
+            <span>{{ t.role }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <button *ngIf="testimonials.length > 1" class="carousel-arrow right" (click)="scrollTestimonials('right')">
+      <i class="fa-solid fa-chevron-right"></i>
+    </button>
+
+    <div class="carousel-dots">
+  <span *ngFor="let dot of [].constructor(visibleSlides); let i = index"
+        [class.active]="i === currentTestimonialIndex"></span>
+    </div>
+  </div>
+</section>
+
+
+<!-- Call to Action -->
+<section class="cta-section gradient-bg" @fadeIn>
+  <img src="assets/jk-cloud-labs-logo.png" alt="Company Logo" class="scrolling-logo" />
+  <div class="cta-container">
+    <h2 @slideInUp>Let’s Build Something Great Together</h2>
+    <a [routerLink]="['/contact']" fragment="main-content">
+      <button class="btn-secondary" @slideInUp>📞 Contact Us</button>
+    </a>
+  </div>
+</section>

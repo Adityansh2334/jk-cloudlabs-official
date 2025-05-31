@@ -1,0 +1,27 @@
+<nav class="navbar" @fadeIn>
+  <div class="navbar-container">
+    <!-- Logo -->
+    <a routerLink="/" class="logo-link">
+      <img
+        src="assets/jk-cloud-labs-logo.png"
+        alt="JK CloudLabs Logo"
+        class="logo"
+        @logoBounce
+      />
+      <span class="brand-name">JK CloudLabs</span>
+    </a>
+
+    <button class="mobile-menu-btn" (click)="toggleMenu()" [class.open]="menuOpen" aria-label="Toggle Menu">
+      <span class="hamburger" [class.open]="menuOpen"></span>
+      <span class="hamburger" [class.open]="menuOpen"></span>
+      <span class="hamburger" [class.open]="menuOpen"></span>
+    </button>
+
+    <div class="nav-links" [class.open]="menuOpen">
+      <a routerLink="/work-samples" routerLinkActive="active" (click)="closeMenu()">Project Portfolios</a>
+      <a routerLink="/about" routerLinkActive="active" (click)="closeMenu()">About</a>
+      <a routerLink="/services" routerLinkActive="active" (click)="closeMenu()">Services</a>
+      <a routerLink="/contact" routerLinkActive="active" (click)="closeMenu()">Contact</a>
+    </div>
+  </div>
+</nav>
